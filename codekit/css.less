@@ -33,16 +33,10 @@ body {
 
 *, *:after, *:before {
     .box-sizing ();
-}
+} 
 
 
-#intro{
-	height: 700px;
-	background-color: #E3EBEB;
-	text-align: right;
-	padding: 0;
-}
-
+/**********  titre ************/
 .titre{
 	padding: 15px;
 }
@@ -59,41 +53,7 @@ body {
 }
 
 
-
-
-/* 
-Menu Fixe
-*/
-
-#menu ul ol {
-	margin: 0;
-	padding: 0;
-}
-	
-#menu li{
-	margin-top: 25px;
-	height: 35px;
-	text-transform: uppercase;
-	display: inline-block;
-    margin-left: 25px;
-    margin-right: 25px;
-}
-
-#menu li:hover{
-	border-bottom: 2px solid pink;
-	padding-bottom: 4px;	
-}
-
-#menu a {
-	color: pink;
-	font-size: 12px;
-	text-decoration: none;
-}
-
-
-/* 
-Menu amovible
-*/
+/*********** Menu *************/
 
 #head {
 	left: 0;
@@ -102,41 +62,27 @@ Menu amovible
 	transform: translateY(0%);
 	transition: all 0.5s ease 0s;
 	transition:	opacity 0.5s linear;
-
-	
-	//padding-left: 50px;
-	//padding-right: 50px;
 	z-index: 150;
-	//top: 50px;
 	text-align: left;
 	width: 100%; 
-	/*visibility: hidden;*/
-	opacity : 0;
-	visibility : hidden;
-}
-
-#perspective {
-
-	//background-color: rgb(96, 203, 183);
-	//background-color: rgb(255,83,92);
 	background-color: white;
-	//height: 100px;	
-	width: 100%;	
 
 }
 
-
-#perspective .span10{
+#head .span10{
+	text-align: left;
+}
+#head .span2{
 	text-align: right;
 }
 
 
-#menu2 ul ol {
+#menu ul ol {
 	margin: 0;
 	padding: 0;
 	}
 	
-#menu2 li{
+#menu li{
 	margin-top: 35px;
 	text-transform: uppercase;
 	display: inline-block;
@@ -144,12 +90,12 @@ Menu amovible
     margin-right: 30px;
 	}
 
-#menu2 li:hover{
+#menu li:hover{
 	border-bottom: 2px solid @color-gris;
 	padding-bottom: 4px;	
 	}
 
-#menu2 a {
+#menu a {
 	color: @color-gris; 
 	font-size: 12px;
 	text-decoration: none; 
