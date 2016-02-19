@@ -124,16 +124,8 @@
 	var gridContainer;
 	var colW; 
 	
-	$(document).ready(function(){		
-		//.parallax(xPosition, speedFactor, outerHeight) options:
-		//xPosition - Horizontal position of the element
-		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-		//$('#intro').parallax("50%", 0.1);
-		//$('#second').parallax("50%", 0.1);
-		//$('.bg').parallax("50%", 0.1); 
+	$(document).ready(function(){	
 		
-		//initialize();
 		getGeocode();
 		
 		gridContainer = jQuery('#portafolio');
@@ -141,39 +133,12 @@
 	
 		$.stellar();
 		
-		$('#second').waypoint(
 		
-		function(direction) {	  
-			  if(direction === 'down'){
-			  	$('#head').css( { 'opacity' : '1' , 'visibility':'visible'});
-			  }else if (direction === 'up'){
-			 	$('#head').css( { 'opacity' : '0', 'visibility':'hidden' });
-			  }
-			}, 
-			{ offset: '50%' } 
-		);
 
-			/*$('#portafolio').isotope({
-						
-				itemSelector : '.item',
-				  //  resizable: false,
-				    layoutMode: 'fitRows'//,
-				//    masonry: {
-				  //  columnWidth: $('#portafolio').width() / 3
-				  //  } 
-				    
-				    
-			});*/
-			
+					
 			gridResize();
 			
-			/*update columnWidth on window resize
-			$(window).smartresize(function(){
-			  $('#portafolio').isotope({
-			    // update columnWidth to a percentage of container width
-			    masonry: { columnWidth: $('#portafolio').width() / 3 }
-			  });
-			});*/
+		
 			
 			//Resize events
 			jQuery(window).smartresize(function(){
@@ -276,7 +241,7 @@
 		<div  class="col-md-12" style="background-image:url('./img/slider_overlay_pattern.png'); height:700px; position:absolue; width: 100%;">
 		
 
-			<div id="bg" class="col-md-12"  data-stellar-ratio="0.65" > 
+			<div id="bg" style="width: 100%;"  data-stellar-ratio="0.65" > 
 				<div class="titre"> 
 					<h1>trabajos</h1> 
 					<p> Nuestros trabajos </p>
@@ -287,70 +252,67 @@
 	</div>	
 	<!--   *********************************   -->	
 	<div id="second" class="container-fluid"> 
-			  
+					  
+			<div class="container"> 
+						<div class="row text-center">
+							<div class="titre"> 
+								<h1>blog</h1> 
+								<p> Asociacoion de imigrantes Senegales en Espana </p>
+							</div>
+						</div>
+					 
+						
 			
-				<div class="row">
-					<div class="titre"> 
-						<h1>trabajos</h1> 
-						<p> Nuestros trabajos </p>
-					</div>
-				</div>
-			 
-				
-	
-				<div class="container"> 
-				  
-				  <div class="item span9"> 
-				  			  
-					  <div class="inside">	  
-						  <a> 
-							  <img src="img/1.jpg"/> 
-							  <span class="title">
-							  <span> Image 1</span>
-							  </span> 
-						  </a> 
-					  </div> 
-				  </div>
-				  
-				  
-				  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
-				  <span class="title">
-				  <span> Image 2</span>
-				  </span>
-				  </a></div> </div>
-				  
-				  
-				  <div class="item"> <div class="inside"><a> <img src="img/1.jpg"/> 
-				  <span class="title">
-				  <span> Image 3</span>
-				  </span>
-				  </a></div> </div>
-				  
-				  
-				  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
-				  <span class="title">
-				  <span> Image 4</span>
-				  </span>
-				  </a></div> </div>
-				  
-				  
-				  <div class="item"> <div class="inside"><a> <img src="img/1.jpg"/> 
-				  <span class="title">
-				  <span> Image 5</span>
-				  </span>
-				  </a></div> </div>
-				  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
-				  
-				  <span class="title">
-				  <span> Image 6</span>
-				  </span>
-				  </a> </div>				  
-				</div>
-			
-							
-	  </div>
-	
-		</div>
+						<div class="container"> 
+						  
+								  <div class="item span9"> 
+								  			  
+									  <div class="inside">	  
+										  <a> 
+											  <img src="img/1.jpg"/> 
+											  <span class="title">
+											  <span> Image 1</span>
+											  </span> 
+										  </a> 
+									  </div> 
+								  </div>
+								  
+								  
+								  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
+								  <span class="title">
+								  <span> Image 2</span>
+								  </span>
+								  </a></div> </div>
+								  
+								  
+								  <div class="item"> <div class="inside"><a> <img src="img/1.jpg"/> 
+								  <span class="title">
+								  <span> Image 3</span>
+								  </span>
+								  </a></div> </div>
+								  
+								  
+								  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
+								  <span class="title">
+								  <span> Image 4</span>
+								  </span>
+								  </a></div> </div>
+								  
+								  
+								  <div class="item"> <div class="inside"><a> <img src="img/1.jpg"/> 
+								  <span class="title">
+								  <span> Image 5</span>
+								  </span>
+								  </a></div> </div>
+								  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
+								  
+								  <span class="title">
+								  <span> Image 6</span>
+								  </span>
+								  </a> </div></div>							
+	  				</div>
+			</div>
+	</div>
 		  
 	<div id="third" class="row-fluid" data-stellar-ratio-background="1">  
 		<div id="map_canvas" style="width:100%; height:100%"></div>

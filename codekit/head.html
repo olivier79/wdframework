@@ -119,16 +119,8 @@
 	var gridContainer;
 	var colW; 
 	
-	$(document).ready(function(){		
-		//.parallax(xPosition, speedFactor, outerHeight) options:
-		//xPosition - Horizontal position of the element
-		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-		//$('#intro').parallax("50%", 0.1);
-		//$('#second').parallax("50%", 0.1);
-		//$('.bg').parallax("50%", 0.1); 
+	$(document).ready(function(){	
 		
-		//initialize();
 		getGeocode();
 		
 		gridContainer = jQuery('#portafolio');
@@ -136,39 +128,12 @@
 	
 		$.stellar();
 		
-		$('#second').waypoint(
 		
-		function(direction) {	  
-			  if(direction === 'down'){
-			  	$('#head').css( { 'opacity' : '1' , 'visibility':'visible'});
-			  }else if (direction === 'up'){
-			 	$('#head').css( { 'opacity' : '0', 'visibility':'hidden' });
-			  }
-			}, 
-			{ offset: '50%' } 
-		);
 
-			/*$('#portafolio').isotope({
-						
-				itemSelector : '.item',
-				  //  resizable: false,
-				    layoutMode: 'fitRows'//,
-				//    masonry: {
-				  //  columnWidth: $('#portafolio').width() / 3
-				  //  } 
-				    
-				    
-			});*/
-			
+					
 			gridResize();
 			
-			/*update columnWidth on window resize
-			$(window).smartresize(function(){
-			  $('#portafolio').isotope({
-			    // update columnWidth to a percentage of container width
-			    masonry: { columnWidth: $('#portafolio').width() / 3 }
-			  });
-			});*/
+		
 			
 			//Resize events
 			jQuery(window).smartresize(function(){
