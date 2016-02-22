@@ -17,10 +17,8 @@
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/jquery.stellar.js"></script>
 <script type="text/javascript" src="js/waypoints.js"></script>
-<script type="text/javascript" src="js/jquery.isotope.js"></script>
-<!-- script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAISuD8TU-rZ9fEniN8uJaELoM6YLb0Sfo&sensor=false"></script -->
+<script type="text/javascript" src="js/isotope.pkgd.js"></script>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 
 	 
@@ -28,172 +26,23 @@
 	
 	<script type="text/javascript"> 
 	
-	//********************** google map ************************
-	
-	var geocoder = new google.maps.Geocoder();
-	var address = "350 5th Ave New York, NY 10118";
-	var latitude;
-	var longitude;
-	
-	function getGeocode() {
-			geocoder.geocode( 
-				{ 'address': address}, 
-				function(results, status) {
-					if (status == google.maps.GeocoderStatus.OK) {
-						latitude = results[0].geometry.location.lat();
-						longitude = results[0].geometry.location.lng();
-						initialize();
-					}
-				});	
-	}
-	
-	
-	
-	
-	
-	function initialize() {
-	
-			var styles = [
-				{
-					stylers: [
-					{ saturation: -100 }
-					]
-				}
-			];
-	
-		  var mapOptions = {
-		  
-		    //center: new google.maps.LatLng(-34.397, 150.644),
-		    //zoom: 8,
-		    //mapTypeId: google.maps.MapTypeId.ROADMAP
-		    
-		    mapTypeControlOptions: {
-		    	mapTypeIds: ['Styled']
-		    	},
-		    center: new google.maps.LatLng(latitude, longitude),
-		    zoom: 13,
-		    scrollwheel: false,
-		    navigationControl: false,
-		    mapTypeControl: false,
-		    zoomControl: true,
-		    disableDefaultUI: true,
-		    mapTypeId: 'Styled' 
-		  };
-		  
-		  var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-		      
-		   
-		   marker = new google.maps.Marker({
-					   	map:map,
-					   	draggable:false,
-					   	animation: google.maps.Animation.DROP,
-					   	position: new google.maps.LatLng(latitude,longitude)
-					   });   
-	      
-	      
-	     var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
-	     map.mapTypes.set('Styled', styledMapType);
-	     
-	     var infowindow = new google.maps.InfoWindow({
-	     	content: "<div class='iwContent'>350 5th Ave New York, NY 10118</div>"
-	     }); 
-	      
-	      google.maps.event.addListener(marker, 'click', function() {
-	      	infowindow.open(map,marker);
-	      	});
-	      	
-	      bounds = new google.maps.LatLngBounds(
-	      	new google.maps.LatLng(-84.999999, -179.999999),
-	      	new google.maps.LatLng(84.999999, 179.999999)
-	      	);
-	      	
-	      rect = new google.maps.Rectangle({
-	      	bounds: bounds,
-	      //	fillColor: "#49edc6",
-	      	fillColor: "#FF535C",
-	      	fillOpacity: 0.2,
-	      	strokeWeight: 0,
-	      	map: map
-	      	});
-	        
-	      
-	}
-	
+alert('test2');
 
-	
-	var gridContainer;
-	var colW; 
 	
 	$(document).ready(function(){	
 		
-		getGeocode();
+		alert('test');
+		$('.grid').isotope({
+		    itemSelector: '.item',
+		    masonry: {
+		      columnWidth: '.col-md-4'
+		    }
+		  });
 		
-		gridContainer = jQuery('#portafolio');
+	});
 		
-	
-		$.stellar();
-		
-		
-
-					
-			gridResize();
-			
-		
-			
-			//Resize events
-			jQuery(window).smartresize(function(){
-				gridResize();
-				navMobile();
-				
-			}); 
-			
-			$('.mobile-nav-link').click(function(e) {
-				e.preventDefault();
-				$('.mobile-nav').animate({"top" : 0}, 500);
-				//$('body').css("overflow", "hidden");
-			}); 
-			
-					navMobile();
-			
-		}); 
-
-		
-		function navMobile() {
-			$('.menu-mobile li').css('height', $(window).innerHeight()/$('.menu-mobile li').length);
-			$('.menu-mobile li a').css('line-height', $('.menu-mobile li').height()+"px");
-		}
 		
 
-		
-		function gridResize() {
-			setColumns();
-				gridContainer.isotope({
-					resizable: false,
-					layoutMode: 'fitRows',
-					masonry: {
-					columnWidth: colW
-					}
-				});
-		} 
-		
-		function setColumns()
-		{
-			var columns;
-			var gw = gridContainer.width();
-			if(gw<=700){
-			columns = 1;
-			}else{ 
-			columns = 3;
-			}
-			colW = Math.floor(gw / columns);
-			jQuery('#portafolio .item').each(function(id){
-			jQuery(this).css('width',colW+'px');
-			});
-			jQuery('#portafolio .item').show();
-		}
-		
- 		
-		
 		 
 	</script>
 	
@@ -263,9 +112,9 @@
 					 
 						
 			
-						<div class="container"> 
+						<div class="grid row"> 
 						  
-								  <div class="item span9"> 
+								  <div class="item col-md-8"> 
 								  			  
 									  <div class="inside">	  
 										  <a> 
@@ -278,38 +127,71 @@
 								  </div>
 								  
 								  
-								  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
-								  <span class="title">
-								  <span> Image 2</span>
-								  </span>
-								  </a></div> </div>
+								  <div class="item col-md-4"> 
+									  <div class="inside"><a> <img src="img/test.jpg"/> 
+									  <span class="title">
+									  <span> Image 2</span>
+									  </span>
+									  </a></div> 
+								  </div>
 								  
+								  <div class="item col-md-4"> 
+								  	  <div class="inside"><a> <img src="img/test.jpg"/> 
+								  	  <span class="title">
+								  	  <span> Image 2</span>
+								  	  </span>
+								  	  </a></div> 
+								  </div>
 								  
-								  <div class="item"> <div class="inside"><a> <img src="img/1.jpg"/> 
-								  <span class="title">
-								  <span> Image 3</span>
-								  </span>
-								  </a></div> </div>
+								  <div class="item col-md-4"> 
+								  	  <div class="inside"><a> <img src="img/test.jpg"/> 
+								  	  <span class="title">
+								  	  <span> Image 2</span>
+								  	  </span>
+								  	  </a></div> 
+								  </div>
 								  
+								  <div class="item col-md-4"> 
+								  	  <div class="inside"><a> <img src="img/test.jpg"/> 
+								  	  <span class="title">
+								  	  <span> Image 2</span>
+								  	  </span>
+								  	  </a></div> 
+								  </div>
 								  
-								  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
-								  <span class="title">
-								  <span> Image 4</span>
-								  </span>
-								  </a></div> </div>
+								  <div class="item col-md-4"> 
+								  	  <div class="inside"><a> <img src="img/test.jpg"/> 
+								  	  <span class="title">
+								  	  <span> Image 2</span>
+								  	  </span>
+								  	  </a></div> 
+								  </div>
 								  
+								  <div class="item col-md-4"> 
+								  	  <div class="inside"><a> <img src="img/test.jpg"/> 
+								  	  <span class="title">
+								  	  <span> Image 2</span>
+								  	  </span>
+								  	  </a></div> 
+								  </div>
 								  
-								  <div class="item"> <div class="inside"><a> <img src="img/1.jpg"/> 
-								  <span class="title">
-								  <span> Image 5</span>
-								  </span>
-								  </a></div> </div>
-								  <div class="item"> <div class="inside"><a> <img src="img/test.jpg"/> 
+								  <div class="item col-md-4"> 
+								  	  <div class="inside"><a> <img src="img/test.jpg"/> 
+								  	  <span class="title">
+								  	  <span> Image 2</span>
+								  	  </span>
+								  	  </a></div> 
+								  </div>
 								  
-								  <span class="title">
-								  <span> Image 6</span>
-								  </span>
-								  </a> </div></div>							
+								  <div class="item col-md-4"> 
+								  	  <div class="inside"><a> <img src="img/test.jpg"/> 
+								  	  <span class="title">
+								  	  <span> Image 2</span>
+								  	  </span>
+								  	  </a></div> 
+								  </div>
+								  
+								  							
 	  				</div>
 			</div>
 	</div>
